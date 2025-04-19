@@ -1,0 +1,106 @@
+:root {
+    --color-fondo: #f8f9fa;
+    --color-tablero: #ffffff;
+    --color-borde: #dee2e6;
+    --color-texto: #212529;
+    --color-x: #007bff; /* Azul */
+    --color-o: #dc3545; /* Rojo */
+    --color-boton: #28a745; /* Verde */
+    --color-boton-hover: #218838;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--color-texto);
+}
+
+.container {
+    text-align: center;
+    background-color: var(--color-tablero);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    color: var(--color-texto);
+}
+
+.mensaje {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    min-height: 1.5em; /* Para evitar saltos de layout */
+}
+
+.tablero {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-bottom: 25px;
+    background-color: var(--color-borde);
+    border: 1px solid var(--color-borde);
+    width: 310px; /* 3*100px + 2*5px gap */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.casilla {
+    background-color: var(--color-tablero);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.casilla:hover {
+    background-color: #e9ecef; /* Un gris claro al pasar el mouse */
+}
+
+.casilla.x {
+    color: var(--color-x);
+}
+
+.casilla.o {
+    color: var(--color-o);
+}
+
+/* Evitar hover en casillas ocupadas */
+.casilla.x:hover,
+.casilla.o:hover {
+    background-color: var(--color-tablero);
+    cursor: default;
+}
+
+
+.boton-reiniciar {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: var(--color-boton);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.boton-reiniciar:hover {
+    background-color: var(--color-boton-hover);
+}
+
+/* Estilos para indicar victoria (opcional, se puede añadir luego con JS) */
+.casilla.ganadora {
+    background-color: #ffc107; /* Amarillo para resaltar */
+}
